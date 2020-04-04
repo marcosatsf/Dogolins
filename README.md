@@ -1,3 +1,7 @@
 # Alfred Bot
-## ButlerBot
+## Description
 A special service bot
+## Wikia
+
+## Options
+
