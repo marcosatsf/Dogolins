@@ -3,5 +3,5 @@
 A special service bot
 ## Wikia
 
-## Options
+## Help
 
