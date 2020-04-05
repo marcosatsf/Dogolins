@@ -8,12 +8,48 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+GUILD = os.getenv('DISCORD_GUILD')
 
 client = discord.Client()
 
+cumprimento_quotes = [
+                    [
+                    'Fala ',
+                    'Opa ',
+                    'Manda ',
+                    'Nice ',
+                    ],
+                    [
+                    'meu querubim!',
+                    'meu elevado!',
+                    'meu bacano!',
+                    'meu sobrevivente!',
+                    'meu consagrado!',
+                     ]
+                ]
+
+coolMusic_quotes = [
+                    'Essa música é insana!',
+                    'Eu particularmente adoro essa música!',
+                    'Também gosto muito dessa música!',
+                    'Essa música me deixa todo arrepiado!',
+                ]
+
+async def dm_about_music(memb, ytQuery):
+    await memb.create_dm()
+    await memb.dm_channel.send(
+        '{}{}\n'
+        '{} Você já viu o vídeo dela?\n'
+        '{}'.format(random.choice(cumprimento_quotes[0]), random.choice(cumprimento_quotes[1]), random.choice(coolMusic_quotes), ytQuery)
+    )
+
 @client.event
 async def on_ready():
-    print(f'{client.user.name} conectou no Discord! (nice cachorro)')
+    print(f'{client.user.name} conectou no Discord!')
+    for guild in client.guilds:
+        if guild.name == GUILD:
+            break
+    print(f'{client.user} is connected to the following guild:\n')
 
 @client.event
 async def on_member_join(member):
@@ -24,21 +60,47 @@ async def on_member_join(member):
 
 @client.event
 async def on_member_update(bfr,aft):
-    await aft.create_dm()
     try:
-        if isinstance(aft.activities[1],discord.Spotify):
-            ytLink='https://www.youtube.com/results?search_query='
-            filter = aft.activities[1].title
-            filter = re.sub(r'[^a-zA-Z0-9 ]+','',filter)
-            filter = re.sub(r'[ ]+','+',filter)
-            ytLink += filter
-            await aft.dm_channel.send(
-                'Olá {}, essa música é irada!'
-                ' você já viu o vídeo dela?\n'
-                '( {} )'.format(aft.name,ytLink)
-            )
+        for guild in client.guilds:
+            if guild.name == GUILD:
+                break
+        listActiveMembers = []
+        for voipC in guild.voice_channels:
+            listActiveMembers.extend([memb.name for memb in voipC.members])
+        print(f'Active list: {listActiveMembers}')
+        for act in aft.activities:
+            if (aft.name in listActiveMembers) and isinstance(act,discord.Spotify):
+                ytLink='https://www.youtube.com/results?search_query='
+                filter = act.title + '+' + act.artist
+                filter = re.sub(r'[^a-zA-Z0-9 +]+','',filter)
+                filter = re.sub(r'[ ]+','+',filter)
+                ytLink += filter
+
+                await dm_about_music(aft, ytLink)
+
     except IndexError:
         pass
+
+@client.event
+async def on_voice_state_update(memb,beforeVS,afterVS):
+    print(f'before {beforeVS} and after {afterVS}')
+
+    for guild in client.guilds:
+        if guild.name == GUILD:
+            break
+    if beforeVS.channel == None and afterVS.channel in guild.voice_channels:
+        try:
+            for act in memb.activities:
+                if isinstance(act,discord.Spotify):
+                    ytLink = 'https://www.youtube.com/results?search_query='
+                    filter = act.title + '+' + act.artist
+                    filter = re.sub(r'[^a-zA-Z0-9 +]+', '', filter)
+                    filter = re.sub(r'[ ]+', '+', filter)
+                    ytLink += filter
+
+                    await dm_about_music(memb, ytLink)
+        except IndexError:
+            pass
 
 
 @client.event
