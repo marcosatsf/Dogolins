@@ -1,4 +1,4 @@
-#bot.py
+#MaxDogolin.py
 import os
 import random
 import re
@@ -83,6 +83,9 @@ async def on_member_update(bfr,aft):
 
 @client.event
 async def on_voice_state_update(memb,beforeVS,afterVS):
+    if afterVS.channel == None:
+        break
+
     print(f'before {beforeVS} and after {afterVS}')
 
     for guild in client.guilds:

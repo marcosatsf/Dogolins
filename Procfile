@@ -1,1 +1,1 @@
-worker: python Alfred.py
+worker: python MaxDogolin.py
