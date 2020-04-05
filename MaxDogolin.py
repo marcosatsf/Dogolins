@@ -61,13 +61,15 @@ async def on_member_join(member):
 @client.event
 async def on_member_update(bfr,aft):
     try:
+        print(client.guilds)
         for guild in client.guilds:
-            if guild.name == GUILD:
+            if aft.voice.channel in guild.voice_channels and client:
                 break
+        print(guild)
         listActiveMembers = []
         for voipC in guild.voice_channels:
             listActiveMembers.extend([memb.name for memb in voipC.members])
-        print(f'Active list: {listActiveMembers}')
+        print(f'Active list: {listActiveMembers}, guild: {guild.name}')
         for act in aft.activities:
             if (aft.name in listActiveMembers) and isinstance(act,discord.Spotify):
                 ytLink='https://www.youtube.com/results?search_query='
@@ -83,27 +85,25 @@ async def on_member_update(bfr,aft):
 
 @client.event
 async def on_voice_state_update(memb,beforeVS,afterVS):
-    if afterVS.channel == None:
-        break
+    if afterVS.channel is not None and beforeVS.channel.id == afterVS.channel.id:
+        print(f'before {beforeVS} and after {afterVS}')
 
-    print(f'before {beforeVS} and after {afterVS}')
+        for guild in client.guilds:
+            if guild.name == GUILD:
+                break
+        if beforeVS.channel is None and afterVS.channel in guild.voice_channels:
+            try:
+                for act in memb.activities:
+                    if isinstance(act,discord.Spotify):
+                        ytLink = 'https://www.youtube.com/results?search_query='
+                        filter = act.title + '+' + act.artist
+                        filter = re.sub(r'[^a-zA-Z0-9 +]+', '', filter)
+                        filter = re.sub(r'[ ]+', '+', filter)
+                        ytLink += filter
 
-    for guild in client.guilds:
-        if guild.name == GUILD:
-            break
-    if beforeVS.channel == None and afterVS.channel in guild.voice_channels:
-        try:
-            for act in memb.activities:
-                if isinstance(act,discord.Spotify):
-                    ytLink = 'https://www.youtube.com/results?search_query='
-                    filter = act.title + '+' + act.artist
-                    filter = re.sub(r'[^a-zA-Z0-9 +]+', '', filter)
-                    filter = re.sub(r'[ ]+', '+', filter)
-                    ytLink += filter
-
-                    await dm_about_music(memb, ytLink)
-        except IndexError:
-            pass
+                        await dm_about_music(memb, ytLink)
+            except IndexError:
+                pass
 
 
 @client.event
