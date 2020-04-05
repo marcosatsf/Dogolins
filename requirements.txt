@@ -1,2 +1,2 @@
--U python-dotenv
+python-dotenv --upgrade
 discord.py
