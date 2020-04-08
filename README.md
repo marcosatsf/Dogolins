@@ -1,17 +1,32 @@
-# MaxDogolin Bot
+# Dogolins Bot *for Discord*
+
+![Dogolins](/src/img/Dogolin.png=250x250)\
+*Dogolins in action*
+
 ## Description
 
-By now, MaxDogolin is only able to give you a list of Youtube videos
-of what you're listening on Spotify (all Dogolins requests heartily to 
-integrate Spotify account with Discord before using this function, 
-without it, they will not have work to do on your channel. *Feels bad man*)
+DogolinsIntel **is** a set of services bot which provides games, music and server related 
+information.\
+Each Dogolin takes special care of a different information.\
+By now, there's only one Dogolin active, a.k.a. MaxDogolin!\
+*Meanwhile on DogolinsIntel HQ* MaxDogolin is feeling lonely :cry:
+`waiting indefinitely for other Dogolins`
 
 ## Wikia
+Here's a list of all Dogolins ready to help you :)\
+Dogolins planning to come to this pack are not marked on the following list, 
+as a friend says: "it's trivial!", but it's always good to be crystal clear!
 
-MaxDogolin is a special service bot for Spotify, others Dogolins are
-planning to come to this pack...*waiting indefinitely*
+- [x] MaxDogolin is a special service bot for Spotify :musical_score:*chilling baby*:movie_camera:;
+- [ ] MitDogolin will be charged to provide you games information :sunglasses:*Oh Yeah!*:sunglasses:;
+- [ ] NetDogolin will be the most hated Dogolin, he's kind of :smiling_imp:**gossipy**;
 
-###Spotify Listener
+###MaxDogolin (master of Spotify arts)
+He is able to give you a list of Youtube videos of what you're listening on Spotify 
+(he also requests heartily to integrate Spotify account with Discord before asking
+for help. Without it, Max will not have work to do on your channel. :worried:*Feels bad man*)
 This feature comes ready-to-go, so no commands needed, just enjoy
-your music and when you want to check Discord, MaxDogolin will have 
-a message for you (listing all videos related to that music on YouTube)! :)
+your music and when you want to check Discord, MaxDogolin will have sent
+a message for you listing all videos related to that music on YouTube! :)
+
+Be patience, every Dogolin commits errors and we are open for feedback!

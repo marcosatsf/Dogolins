@@ -1,4 +1,4 @@
-#MaxDogolin.py
+#Dogolins.py
 import os
 import random
 import re
