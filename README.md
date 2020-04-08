@@ -1,6 +1,6 @@
 # Dogolins Bot *for Discord*
 
-![Dogolins](src/img/Dogolin.png=250x250) \
+![Dogolins](src/img/Dogolin.png) \
 *Dogolins in action*
 
 ## Description
@@ -21,7 +21,7 @@ as a friend says: "it's trivial!", but it's always good to be crystal clear!
 - [ ] MitDogolin will be charged to provide you games information :sunglasses:*Oh Yeah!*:sunglasses:;
 - [ ] NetDogolin will be the most hated Dogolin, he's kind of :smiling_imp:**gossipy**;
 
-###MaxDogolin (master of Spotify arts)
+### MaxDogolin (master of Spotify arts)
 He is able to give you a list of Youtube videos of what you're listening on Spotify 
 (he also requests heartily to integrate Spotify account with Discord before asking
 for help. Without it, Max will not have work to do on your channel. :worried:*Feels bad man*)
