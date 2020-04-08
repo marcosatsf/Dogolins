@@ -11,7 +11,7 @@ without it, they will not have work to do on your channel. *Feels bad man*)
 MaxDogolin is a special service bot for Spotify, others Dogolins are
 planning to come to this pack...*waiting indefinitely*
 
-###Spotify Listener
+### Spotify Listener
 This feature comes ready-to-go, so no commands needed, just enjoy
 your music and when you want to check Discord, MaxDogolin will have 
 a message for you (listing all videos related to that music on YouTube)! :)
