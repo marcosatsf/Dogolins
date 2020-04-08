@@ -63,7 +63,7 @@ async def on_member_update(bfr,aft):
     try:
         print(client.guilds)
         for guild in client.guilds:
-            if aft.voice.channel in guild.voice_channels and client:
+            if aft.voice.channel in guild.voice_channels:
                 break
         print(guild)
         listActiveMembers = []
@@ -85,7 +85,7 @@ async def on_member_update(bfr,aft):
 
 @client.event
 async def on_voice_state_update(memb,beforeVS,afterVS):
-    if afterVS.channel is not None and beforeVS.channel.id == afterVS.channel.id:
+    if beforeVS.channel is None:
         print(f'before {beforeVS} and after {afterVS}')
 
         for guild in client.guilds:
