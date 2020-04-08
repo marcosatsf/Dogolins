@@ -1,6 +1,6 @@
 # Dogolins Bot *for Discord*
 
-![Dogolins](/src/img/Dogolin.png=250x250)\
+![Dogolins](src/img/Dogolin.png=250x250) \
 *Dogolins in action*
 
 ## Description
