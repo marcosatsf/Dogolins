@@ -1,1 +1,1 @@
-worker: python MaxDogolin.py
+worker: python Dogolin.py
