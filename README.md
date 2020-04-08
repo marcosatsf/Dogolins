@@ -5,12 +5,12 @@
 
 ## Description
 
-DogolinsIntel **is** a set of services bot which provides games, music and server related 
-information.\
+DogolinsIntel **is** a set of dogs each of which, provides information related to
+games, music and server updates.\
 Each Dogolin takes special care of a different information.\
 By now, there's only one Dogolin active, a.k.a. MaxDogolin!\
-*Meanwhile on DogolinsIntel HQ* MaxDogolin is feeling lonely :cry:
-`waiting indefinitely for other Dogolins`
+*Meanwhile on DogolinsIntel HQ* :cry: `MaxDogolin is feeling lonely and 
+waiting indefinitely for other Dogolins`
 
 ## Wikia
 Here's a list of all Dogolins ready to help you :)\
