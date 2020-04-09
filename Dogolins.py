@@ -61,15 +61,15 @@ async def on_member_join(member):
 @client.event
 async def on_member_update(bfr,aft):
     try:
-        print(client.guilds)
+        print(client.guilds, flush=True)
         for guild in client.guilds:
             if aft.voice.channel in guild.voice_channels:
                 break
-        print(guild)
+        print(guild, flush=True)
         listActiveMembers = []
         for voipC in guild.voice_channels:
             listActiveMembers.extend([memb.name for memb in voipC.members])
-        print(f'Active list: {listActiveMembers}, guild: {guild.name}')
+        print(f'Active list: {listActiveMembers}, guild: {guild.name}', flush=True)
         for act in aft.activities:
             if (aft.name in listActiveMembers) and isinstance(act,discord.Spotify):
                 ytLink='https://www.youtube.com/results?search_query='
@@ -86,7 +86,7 @@ async def on_member_update(bfr,aft):
 @client.event
 async def on_voice_state_update(memb,beforeVS,afterVS):
     if beforeVS.channel is None:
-        print(f'before {beforeVS} and after {afterVS}')
+        print(f'before {beforeVS} and after {afterVS}', flush=True)
 
         for guild in client.guilds:
             if guild.name == GUILD:

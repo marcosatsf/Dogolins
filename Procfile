@@ -1,1 +1,1 @@
-worker: python Dogolin.py
+worker: python Dogolins.py
